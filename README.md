@@ -39,7 +39,7 @@ DROP TABLE IF EXISTS table_a ;
 DESC table_a ;
 ```
 
-![avatar](desc_result.bmp)
+![avatar](desc_result.jpg)
 
 ## 二、数据插入
 
