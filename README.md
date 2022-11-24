@@ -125,7 +125,7 @@ SELECT round(chinese,1) from table_a ;
 
 ## 五、窗口函数
 
-### 4.1 ... over  (partition by ... order by ...) ...
+### 5.1 ... over  (partition by ... order by ...) ...
 
 功能：分组排序、算均值之类
 
@@ -139,18 +139,14 @@ FROM table_a a;
 
 -- 2、近半年均值
 SELECT *, 
-AVG(cnlyl) over (PARTITION BY pucnumber,
-                consid ORDER BY pucnumber,
-                consid,
-                yearmon rows between 6 preceding and 0 preceding) as F 
+AVG(cnlyl) over (PARTITION BY pucnumber, consid 
+		ORDER BY pucnumber, consid, yearmon rows between 6 preceding and 0 preceding) as F 
 FROM table_x ;
 
 -- 3、历史连续6个月月均产能利用率，1-6月，2-7月，3-8月...
 SELECT *, 
-AVG(cnlyl) over (PARTITION BY pucnumber,
-                consid ORDER BY pucnumber,
-                consid,
-                yearmon rows between 12 preceding and 6 preceding) as F 
+AVG(cnlyl) over (PARTITION BY pucnumber, consid 
+		ORDER BY pucnumber, consid, yearmon rows between 12 preceding and 6 preceding) as F 
 FROM table_x ;
 ```
 
